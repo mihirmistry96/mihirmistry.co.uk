@@ -6,7 +6,7 @@
 
 <title>Mihir Mistry</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -14,7 +14,6 @@ body {
   font-family: 'Inter', sans-serif;
   background: #0a0a0a;
   color: white;
-  cursor: none;
 }
 
 .container {
@@ -24,7 +23,13 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 p {
@@ -32,6 +37,7 @@ p {
   line-height: 1.6;
 }
 
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -39,118 +45,123 @@ p {
   justify-content: center;
 }
 
+.hero p {
+  max-width: 500px;
+}
+
+/* BUTTON */
 .btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 14px 24px;
+  padding: 14px 26px;
   background: white;
   color: black;
   text-decoration: none;
   font-weight: 600;
 }
 
-/* Cursor */
-.cursor-dot, .cursor-circle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 999;
-}
-
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-}
-
-.cursor-circle {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 50%;
-}
-
-/* Sections */
+/* SECTION SPACING */
 .section {
-  margin-top: 60px;
+  border-top: 1px solid #222;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .card {
   background: #111;
   padding: 25px;
-  margin-top: 20px;
-  border-radius: 8px;
+  border-radius: 6px;
+}
+
+/* FULL WIDTH FEATURE */
+.full-width {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.full-width h2 {
+  color: black;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  font-style: italic;
+  max-width: 700px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor-dot"></div>
-<div class="cursor-circle"></div>
-
+<!-- HERO -->
 <div class="container hero">
   <h1>Mihir Mistry</h1>
-  <p>Creative Designer & Visual Storytelling</p>
+  <p>
+    Creative designer focused on branding, storytelling and digital experiences.
+  </p>
   <a href="#portfolio" class="btn">View Work</a>
 </div>
 
+<!-- INTRO (like 2nd section) -->
 <div class="container section">
-  <h2>Services</h2>
-  <div class="card">
-    Branding • Graphic Design • Digital Design
-  </div>
-</div>
-
-<div class="container section" id="portfolio">
-  <h2>Portfolio Highlights</h2>
-  <div class="card">
-    Add your best 3–6 projects here later
-  </div>
-</div>
-
-<div class="container section">
-  <h2>Full Portfolio Book</h2>
-  <div class="card">
-    <p>Explore my full 520-page portfolio.</p>
-    <a class="btn" href="PASTE_LINK_HERE" target="_blank">
-      Open Portfolio →
-    </a>
-  </div>
-</div>
-
-<div class="container section">
-  <h2>About</h2>
+  <h2>About Me</h2>
   <p>
-    I create visually compelling design work focused on branding,
-    storytelling, and digital experiences.
+    I create visually compelling work across branding, illustration, photography and digital design.
+    My focus is on clean, impactful storytelling through design.
   </p>
 </div>
 
+<!-- SERVICES -->
 <div class="container section">
-  <h2>Pricing & Terms</h2>
-  <div class="card">
-    Projects are priced based on scope. Contact for details.
+  <h2>Services</h2>
+
+  <div class="grid">
+    <div class="card">Brand Identity</div>
+    <div class="card">Graphic Design</div>
+    <div class="card">Digital Design</div>
+    <div class="card">Portfolio Development</div>
   </div>
 </div>
 
+<!-- PORTFOLIO -->
+<div class="container section" id="portfolio">
+  <h2>Portfolio</h2>
+
+  <div class="grid">
+    <div class="card">Project 1</div>
+    <div class="card">Project 2</div>
+    <div class="card">Project 3</div>
+  </div>
+</div>
+
+<!-- FULL WIDTH BOOK -->
+<div class="full-width">
+  <h2>520 Page Portfolio Book</h2>
+  <p>Explore my complete body of work in an interactive format.</p>
+  <a href="PASTE_LINK_HERE" target="_blank" class="btn">Open Portfolio</a>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="container section">
+  <h2>Testimonial</h2>
+  <p class="testimonial">
+    “Mihir delivers thoughtful, high-quality design work with strong attention to detail and storytelling.”
+  </p>
+</div>
+
+<!-- CONTACT -->
 <div class="container section">
   <h2>Contact</h2>
   <p>Email: your@email.com</p>
 </div>
-
-<script>
-const dot = document.querySelector('.cursor-dot');
-const circle = document.querySelector('.cursor-circle');
-
-document.addEventListener('mousemove', e => {
-  dot.style.top = e.clientY + 'px';
-  dot.style.left = e.clientX + 'px';
-
-  circle.style.top = e.clientY - 15 + 'px';
-  circle.style.left = e.clientX - 15 + 'px';
-});
-</script>
 
 </body>
 </html>
