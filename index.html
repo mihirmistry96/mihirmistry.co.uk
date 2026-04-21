@@ -37,27 +37,40 @@ p {
   line-height: 1.6;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .hero p {
   max-width: 500px;
 }
 
-/* BUTTON */
+/* UPDATED BUTTON */
 .btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 14px 26px;
-  background: white;
-  color: black;
+  padding: 10px 18px; /* smaller */
+  background: #ff5a1f; /* orange */
+  color: white;
   text-decoration: none;
   font-weight: 600;
+  border-radius: 4px;
+}
+
+/* CENTERED FULL WIDTH FIX */
+.full-width {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.full-width .btn {
+  margin-top: 25px;
 }
 
 /* SECTION SPACING */
@@ -138,7 +151,12 @@ p {
 <!-- CONTACT -->
 <div class="container section">
   <h2>Contact</h2>
-  <p>Email: mihir_mistry@hotmail.co.uk</p>
+<p>
+  Email: 
+  <a href="mailto:mihir_mistry@hotmail.co.uk" style="color:#ff5a1f;">
+    mihir_mistry@hotmail.co.uk
+  </a>
+</p>
 </div>
 
 </body>
