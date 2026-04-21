@@ -4,12 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mihir Mistry</title>
+<title>Mihir Mistry Designs</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
 :root {
   --orange: #ff5a1f;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: white;
 }
 
 /* NAVBAR */
@@ -47,6 +55,7 @@
   padding: 10px 18px;
   text-decoration: none;
   font-weight: 600;
+  border-radius: 4px;
 }
 
 /* HERO */
@@ -72,21 +81,19 @@
   z-index: 2;
 }
 
-/* ROTATING BUTTON */
-.rotate-btn {
-  margin-top: 30px;
-  border: 1px solid var(--orange);
-  padding: 20px;
-  border-radius: 50%;
+/* BUTTON */
+.btn {
   display: inline-block;
-  animation: spin 8s linear infinite;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
 }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-/* SERVICES CIRCLES */
+/* SERVICES */
 .services {
   display: flex;
   justify-content: center;
@@ -122,21 +129,10 @@
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
 
-/* CURSOR DOT */
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--orange);
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
+/* GENERAL CONTENT */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -158,13 +154,34 @@ p {
   line-height: 1.6;
 }
 
+/* SECTION */
+.section {
+  border-top: 1px solid #222;
+}
+
+/* FULL WIDTH BOOK */
+.full-width {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  font-style: italic;
+  max-width: 700px;
+}
+</style>
+</head>
+
+<body>
+
 <!-- NAVBAR -->
 <div class="nav">
   <div class="nav-left">
     <div class="logo">Mihir Mistry Designs</div>
     <a href="https://mihirmistry3.wixsite.com/design" target="_blank"><div class="icon"></div></a>
-    <div class="icon"></div>
-    <div class="icon"></div>
     <a href="https://heyzine.com/flip-book/15355dcaac.html#page/1" target="_blank"><div class="icon"></div></a>
   </div>
 
@@ -176,11 +193,14 @@ p {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Mihir Mistry</h1>
-    <p>Creative Designer & Visual Storytelling</p>
+    <h1>Mihir Mistry Designs</h1>
+    <p>
+      WEBSITE UNDER RE-DESIGN.<br>
+      Please view the web portfolio below designed on Wix.
+    </p>
 
-    <a href="https://mihirmistry3.wixsite.com/design" target="_blank" class="rotate-btn">
-      Explore
+    <a href="https://mihirmistry3.wixsite.com/design" target="_blank" class="btn">
+      View Portfolio
     </a>
 
     <div class="services">
@@ -197,98 +217,11 @@ p {
   <span>Creative Design • Branding • Digital Experiences • Visual Storytelling •</span>
 </div>
 
-<!-- CURSOR -->
-<div class="cursor-dot"></div>
-
-<script>
-const dot = document.querySelector('.cursor-dot');
-document.addEventListener('mousemove', e => {
-  dot.style.top = e.clientY + 'px';
-  dot.style.left = e.clientX + 'px';
-});
-</script>
-
-/* UPDATED BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 18px; /* smaller */
-  background: #ff5a1f; /* orange */
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 4px;
-}
-
-/* CENTERED FULL WIDTH FIX */
-.full-width {
-  background: white;
-  color: black;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.full-width .btn {
-  margin-top: 25px;
-}
-
-/* SECTION SPACING */
-.section {
-  border-top: 1px solid #222;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.card {
-  background: #111;
-  padding: 25px;
-  border-radius: 6px;
-}
-
-/* FULL WIDTH FEATURE */
-.full-width {
-  background: white;
-  colour: black;
-  text-align: centre;
-  padding: 50px 20px;
-}
-
-.full-width h2 {
-  color: black;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-  font-style: italic;
-  max-width: 700px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<div class="container hero">
-  <h1>Mihir Mistry Designs</h1>
-  <p>
-    WEBSITE UNDER RE-DESIGN.
-    Please view the web portfolio below designed on Wix.
-  </p>
-<a href="https://mihirmistry3.wixsite.com/design" class="btn" target="_blank">View Portfolio</a>
-</div>
-
-<!-- INTRO (like 2nd section) -->
+<!-- ABOUT -->
 <div class="container section">
   <h2>About Me</h2>
   <p>
     Creative designer helping brands bring bold ideas to life. Focused on Logos & branding, Print & Advertising, Storytelling, Digital Experiences and Photography.
-    My focus is on clean, impactful storytelling through design.
   </p>
 </div>
 
@@ -296,7 +229,9 @@ document.addEventListener('mousemove', e => {
 <div class="full-width">
   <h2>520 Page Portfolio Book</h2>
   <p>Explore my complete creative work in an interactive format.</p>
-  <a href="https://heyzine.com/flip-book/15355dcaac.html#page/1" target="_blank" class="btn">Open Digital Book</a>
+  <a href="https://heyzine.com/flip-book/15355dcaac.html#page/1" target="_blank" class="btn">
+    Open Digital Book
+  </a>
 </div>
 
 <!-- TESTIMONIAL -->
@@ -310,12 +245,12 @@ document.addEventListener('mousemove', e => {
 <!-- CONTACT -->
 <div class="container section">
   <h2>Contact</h2>
-<p>
-  Email: 
-  <a href="mailto:mihir_mistry@hotmail.co.uk" style="color:#ff5a1f;">
-    mihir_mistry@hotmail.co.uk
-  </a>
-</p>
+  <p>
+    Email:
+    <a href="mailto:mihir_mistry@hotmail.co.uk" style="color:#ff5a1f;">
+      mihir_mistry@hotmail.co.uk
+    </a>
+  </p>
 </div>
 
 </body>
