@@ -1,245 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mihir Mistry Designs</title>
 
-<title>Mihir Mistry Designs</title>
+  <!-- SEO -->
+  <meta name="description" content="Mihir Mistry Designs - Creative Designer that brings ideas to life.">
+  <meta name="keywords" content="Mihir Mistry, Designer, Portfolio, Graphic Design, Web Design">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- React + Babel (stable CDN) -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<style>
-:root {
-  --orange: #e53e31;
-}
+  <!-- Tailwind CDN (utility classes only) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #0a0a0a;
-  color: white;
-}
+  <!-- Custom CSS (NO @apply, works everywhere) -->
+  <style>
+    :root {
+      --brand-orange: #e53e31;
+      --bg-dark: #0a0a0a;
+    }
 
-/* NAVBAR */
-.nav {
-  position: fixed;
-  top: 50;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  z-index: 1000;
-}
+    body {
+      background: var(--bg-dark);
+      color: white;
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.nav-left, .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    .scroll-text-container {
+      white-space: nowrap;
+      overflow: hidden;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 16px;
+      background: var(--brand-orange);
+      color: black;
+      font-weight: 600;
+      font-size: 18px;
+    }
 
-.logo {
-  color: var(--orange);
-  font-weight: 700;
-}
+    .scroll-text-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 11s linear infinite;
+    }
 
-.icon {
-  width: 18px;
-  height: 18px;
-  background: white;
-  border-radius: 50%;
-}
-
-.btn-orange {
-  background: var(--orange);
-  color: white;
-  padding: 10px 18px;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 50px;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  background: url('Image.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 18px;
-  background: var(--orange);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 4px;
-}
-
-/* SERVICES */
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 60px;
-  flex-wrap: wrap;
-}
-
-/* SCROLL TEXT */
-.scroll-text {
-  white-space: nowrap;
-  overflow: hidden;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  padding: 15px 0;
-}
-
-.scroll-text span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll 11s linear infinite;
-}
-
-@keyframes scroll {
-  100% { transform: translateX(-100%); }
-  
-/* GENERAL CONTENT */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-}
-
-h1 {
-  font-size: 3.5rem;
-  margin: 0;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-p {
-  opacity: 0.7;
-  line-height: 1.6;
-}
-
-/* SECTION */
-.section {
-  border-top: 1px solid #222;
-}
-
-/* FULL WIDTH BOOK */
-.full-width {
-  background: white;
-  color: black;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-  font-style: italic;
-  max-width: 700px;
-}
-</style>
+    @keyframes scroll {
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
 
 <body>
+  <div id="root"></div>
 
-<!-- NAVBAR -->
-<div class="nav">
-  <div class="nav-center">
-    <div class="logo">Mihir Mistry Designs</div>
-    <a href="https://mihirmistry3.wixsite.com/design" target="_blank"><div class="icon"></div></a>
-    <a href="https://heyzine.com/flip-book/15355dcaac.html#page/1" target="_blank"><div class="icon"></div></a>
-  </div>
+  <!-- React App -->
+  <script type="text/babel">
 
-  <div class="nav-right">
-    <a href="mailto:mihir_mistry@hotmail.co.uk" class="btn-orange">Let's Talk</a>
-  </div>
-</div>
+    class ErrorBoundary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+      }
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>CREATIVE DESIGNER</h1>
-    <p>
-      WEBSITE UNDER RE-DESIGN.<br>
-      Please view the web portfolio below designed on Wix.
-    </p>
+      static getDerivedStateFromError() {
+        return { hasError: true };
+      }
 
-    <a href="https://mihirmistry3.wixsite.com/design" target="_blank" class="btn">
-      View Portfolio
-    </a>
+      render() {
+        if (this.state.hasError) {
+          return (
+            <div className="min-h-screen flex items-center justify-center p-5 text-center">
+              <div>
+                <h1 className="text-2xl font-bold mb-4">Something went wrong</h1>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="px-6 py-2 rounded-full font-semibold"
+                  style={{ background: "var(--brand-orange)" }}
+                >
+                  Reload Page
+                </button>
+              </div>
+            </div>
+          );
+        }
+        return this.props.children;
+      }
+    }
 
-    <div class="services">
-      <div class="circle">Branding</div>
-      <div class="circle">Digital</div>
-      <div class="circle">Print</div>
-      <div class="circle">Photography</div>
-    </div>
-  </div>
-</div>
+    const Button = ({ href, children }) => (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-6 px-6 py-3 rounded-full font-semibold transition"
+        style={{ background: "var(--brand-orange)" }}
+      >
+        {children}
+      </a>
+    );
 
-<!-- SCROLL TEXT -->
-<div class="scroll-text">
-  <span>Creative Design • Branding • Digital Experiences • Visual Storytelling •</span>
-</div>
+    function App() {
+      return (
+        <div className="w-full flex flex-col min-h-screen">
 
-  <!-- ABOUT -->
-<div class="container section">
-  <h2>About Me</h2>
-  <p>
-    Creative designer helping brands bring bold ideas to life. Focused on Logos & branding, Print & Advertising, Storytelling, Digital Experiences and Photography.
-  </p>
-</div>
+          {/* SCROLL TEXT */}
+          <div className="scroll-text-container fixed top-0 left-0 w-full z-50 shadow-md">
+            <span className="scroll-text-content">
+              Creative Design • Branding • Digital Experiences • Visual Storytelling •
+            </span>
+          </div>
 
-<!-- FULL WIDTH BOOK -->
-<div class="full-width">
-  <h2>MY CREATIVE WORLD · 520 Pages Design Book</h2>
-  <p>Explore my complete creative work in an interactive format.</p>
-  <a href="https://heyzine.com/flip-book/15355dcaac.html#page/1" target="_blank" class="btn">
-    Open Digital Book
-  </a>
-</div>
+          <div className="pt-[60px]">
 
-<!-- TESTIMONIAL -->
-<div class="container section">
-  <h2>Testimonial</h2>
-  <p class="testimonial">
-    “Mihir delivers thoughtful, high-quality design work with strong attention to detail.”
-  </p>
-</div>
+            {/* HERO */}
+            <div className="max-w-6xl mx-auto px-5 min-h-[calc(100vh-60px)] flex flex-col justify-center items-center text-center">
+              <h1
+                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+                style={{ color: "var(--brand-orange)" }}
+              >
+                Mihir Mistry Designs
+              </h1>
 
-<!-- CONTACT -->
-<div class="container section">
-  <h2>Contact</h2>
-  <p>
-    Email:
-    <a href="mailto:mihir_mistry@hotmail.co.uk" style="color:#e53e31;">
-      mihir_mistry@hotmail.co.uk
-    </a>
-  </p>
-</div>
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+                Creative Designer that brings ideas to life.<br/>
+                WEBSITE UNDER RE-DESIGN.<br/>
+                Please click the web portfolio below designed on Wix.
+              </p>
 
+              <Button href="https://mihirmistry3.wixsite.com/design">
+                Web Portfolio
+              </Button>
+            </div>
+
+            {/* ABOUT */}
+            <div className="max-w-4xl mx-auto py-24 px-5 text-center border-t border-[#222]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                Creative designer helping brands bring bold ideas to life. Focused on Logos & branding,
+                Print & Advertising, Storytelling, Digital Experiences and Photography.
+              </p>
+            </div>
+
+            {/* BOOK */}
+            <div className="w-full bg-white text-black text-center py-24 px-5">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  MY CREATIVE WORLD · 520 Pages Design Book
+                </h2>
+                <p className="text-lg text-gray-600 mb-8">
+                  Explore my complete creative work in an interactive format.
+                </p>
+
+                <Button href="https://heyzine.com/flip-book/15355dcaac.html#page/1">
+                  Open Digital Book
+                </Button>
+              </div>
+            </div>
+
+            {/* TESTIMONIAL */}
+            <div className="max-w-4xl mx-auto py-24 px-5 text-center border-t border-[#222]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">Testimonial</h2>
+              <p className="text-xl italic text-gray-300 max-w-3xl mx-auto">
+                “Mihir delivers thoughtful, high-quality design work with strong attention to detail.”
+              </p>
+            </div>
+
+            {/* CONTACT */}
+            <div className="max-w-4xl mx-auto py-24 px-5 text-center border-t border-[#222]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Contact</h2>
+              <p className="text-lg text-gray-300">
+                Email:{" "}
+                <a
+                  href="mailto:mihir_mistry@hotmail.co.uk"
+                  className="font-semibold"
+                  style={{ color: "var(--brand-orange)" }}
+                >
+                  mihir_mistry@hotmail.co.uk
+                </a>
+              </p>
+            </div>
+
+            {/* FOOTER */}
+            <footer className="text-center py-8 text-gray-500 text-sm border-t border-[#222]">
+              © 2026 Mihir Mistry Designs. All rights reserved.
+            </footer>
+
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    );
+
+  </script>
 </body>
 </html>
